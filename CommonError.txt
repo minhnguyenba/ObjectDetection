@@ -1,0 +1,33 @@
+Project1:
+
+Common error:
+ step2:
+	AttributeError: 'FreeTypeFont' object has no attribute 'getsize'
+	
+
+Error2:	
+	Content:
+		AssertionError: No checkpoint specified (save_path=None); nothing is being restored.
+		mv: cannot stat '/tmp/exported/saved_model': No such file or directory
+	
+	Resolution:
+		change the fine_tune_checkpoint_type in config file from default 'classification' to 'detection'
+		
+IOPub message rate exceeded.
+The Jupyter server will temporarily stop sending output
+to the client in order to avoid crashing it.
+To change this limit, set the config variable
+`--ServerApp.iopub_msg_rate_limit`.
+
+--> Open Jypiter notebook lab
+1) Open terminal
+2) Run command: jupyter notebook --generate-config
+3) Open the generated configuration file. 
+	The file location should be displayed in the terminal output. 
+	For example, it could be ~/.jupyter/jupyter_notebook_config.py
+
+4) Search for the line that starts with # c.NotebookApp.iopub_msg_rate_limit
+	Uncomment the line by removing the # at the beginning.
+	Change the value of c.NotebookApp.iopub_msg_rate_limit to 2000.0.
+	Save the configuration file and close it.
+5) Restart Jupyter Notebook.
